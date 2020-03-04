@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <title>Termékek</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Kezdőlap</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/show-products.html">Termékek kezelése</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/show-warehouse.html">Raktárak kezelése</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Termék neve</th>
+                <th>Cikkszám</th>
+                <th>Ár</th>
+                <th>Csomagolási egység</th>
+                <th><button class="btn btn-primary" onclick="CreateProduct()">Új termék</button></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr onclick="HideOrShow(1)">
+                <td>Termék 1</td>
+                <td>#Cikk</td>
+                <td>12 Forint</td>
+                <td>2 darab</td>
+                <td><button class="btn btn-secondary" onclick="ModifyProduct(1)">Módosítás</button></td>
+                <td><button class="btn btn-danger" onclick="DeleteProduct(1)">Törlés</button></td>
+            </tr>
+        </tbody>
+        <thead hidden id="collapse-1-head" class="bg-light">
+            <tr>
+                <th>
+                    Raktár neve
+                </th>
+                <th></th>
+                <th></th>
+                <th>
+                    Darabszám
+                </th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody hidden id="collapse-1-body" class="bg-light">
+            <tr>
+                <td>
+                    Első raktár
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+                    2
+                </td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+        <tbody>
+        <tr onclick="HideOrShow(2)">
+            <td>Termék 2</td>
+            <td>#Cikk_2</td>
+            <td>13 Forint</td>
+            <td>1 darab</td>
+            <td><button class="btn btn-secondary" onclick="ModifyProduct(2)">Módosítás</button></td>
+            <td><button class="btn btn-danger" onclick="DeleteProduct(2)">Törlés</button></td>
+        </tr>
+        </tbody>
+        <thead hidden id="collapse-2-head" class="bg-light">
+        <tr>
+            <th>
+                Raktár neve
+            </th>
+            <th></th>
+            <th></th>
+            <th>
+                Darabszám
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody hidden id="collapse-2-body" class="bg-light">
+        <tr>
+            <td>
+                Első raktár
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+                6
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                Második raktár
+            </td>
+            <td></td>
+            <td></td>
+            <td>
+                3
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="show-products.js"></script>
+</body>
+</html>

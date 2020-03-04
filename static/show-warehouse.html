@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <title>Raktárak</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Kezdőlap</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/show-products.html">Termékek kezelése</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/show-warehouse.html">Raktárak kezelése</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+
+    <table class="table table-hover">
+
+        <thead>
+        <tr>
+            <th class="col-6">Raktár neve</th>
+            <th class="col-4"></th>
+            <th class="col-4"></th>
+            <th></th>
+            <th>
+                <button class="btn btn-primary" onclick="NewWareHouse()">Új raktár</button>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr onclick="HideOrShow(1)">
+            <td colspan="3">
+                Raktár 1
+            </td>
+            <td class="col-4">
+                <button class="btn btn-danger" onclick="DeleteWareHouse(1)">Törlés</button>
+            </td>
+            <td class="col-4">
+                <button class="btn btn-secondary" onclick="ModifyWareHouse(1)">Módosítás</button>
+            </td>
+        </tr>
+        </tbody>
+        <thead id="collapse-1-head" hidden>
+        <tr>
+            <th class="col-10">Termék neve</th>
+            <th class="col-3">Darabszám</th>
+            <th class="col-3">Összár</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody id="collapse-1-body" hidden>
+        <tr>
+            <td class="col-10">Termék 1</td>
+            <td class="col-3">2 db</td>
+            <td class="col-3">24 Ft</td>
+            <td>
+                <button class="btn btn-danger" onclick="RemoveProduct(1, 1)">Törlés</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-secondary" onclick="SetModalData(1, 1)">
+                    Darabszám módosítása
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td class="col-10">Termék 2</td>
+            <td class="col-3">6 db</td>
+            <td class="col-3">78 Ft</td>
+            <td>
+                <button class="btn btn-danger" onclick="RemoveProduct(1, 2)">Törlés</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-secondary" onclick="SetModalData(1, 2)">
+                    Darabszám módosítása
+                </button>
+            </td>
+        </tr>
+        </tbody>
+
+        <tbody>
+        <tr onclick="HideOrShow(2)">
+            <td colspan="3">
+                Raktár 2
+            </td>
+            <td class="col-4">
+                <button class="btn btn-danger" onclick="DeleteWareHouse(1)">Törlés</button>
+            </td>
+            <td class="col-4">
+                <button class="btn btn-secondary" onclick="ModifyWareHouse(1)">Módosítás</button>
+            </td>
+        </tr>
+        </tbody>
+        <thead id="collapse-2-head" hidden>
+        <tr>
+            <th class="col-10">Termék neve</th>
+            <th class="col-3">Darabszám</th>
+            <th class="col-3">Összár</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody id="collapse-2-body" hidden>
+        <tr>
+            <td class="col-10">Termék 2</td>
+            <td class="col-3">3 db</td>
+            <td class="col-3">39 Ft</td>
+            <td>
+                <button class="btn btn-danger" onclick="RemoveProduct(2, 2)">Törlés</button>
+            </td>
+            <td>
+                <button type="button" class="btn btn-secondary" onclick="SetModalData(2, 2)">
+                    Darabszám módosítása
+                </button>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+
+    <div class="modal fade" id="ProductCountModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Termék darabszáma</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <input hidden id="warehouse_id" value="1">
+                <input hidden id="product_id" value="1">
+                <div class="modal-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>
+                                Termék neve
+                            </th>
+                            <th>
+                                Darabszám
+                            </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>
+                                Termék1
+                            </td>
+                            <td>
+                                <input value="2" id="product_count">
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="SaveModalData()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script src="show-warehouse.js"></script>
+<script src="show-products.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <title>Termék létrehozása / módosítása</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Kezdőlap</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/show-products.html">Termékek kezelése</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/show-warehouse.html">Raktárak kezelése</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+
+    <form>
+
+        <label for="name_of_product">Raktár neve</label>
+        <input type="text" id="name_of_product" required name="name" class="form-control">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Termék neve</th>
+                    <th>Csomagolási egység</th>
+                    <th>Termékár</th>
+                    <th></th>
+                    <th></th>
+                    <th>Jelenlegi darabszám</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Termék1</td>
+                    <td>2 darab</td>
+                    <td>12 Forint</td>
+                    <td><button class="btn btn-secondary">Hozzárendelés</button></td>
+                    <td><button class="btn btn-danger">Törlés</button></td>
+                    <td><input type="number" readonly></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="button" class="btn btn-danger">Mégse</button>
+        <button type="submit" class="btn btn-primary">Mentés</button>
+
+    </form>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
